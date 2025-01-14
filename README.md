@@ -9,9 +9,13 @@
 
 #### Modulo transações bancárias
 
-- 3 - Base autenticada -> Carteira pessoal [ ] [ ]
+- 3 - Base autenticada -> Carteira pessoal [x] [ ]
 - 4 - Deposito [ ] [ ]
 - 5 - Saque [ ] [ ]
+- 6 - transferência [ ] [ ]
+- 7 - reverter operações [ ] [ ]
+
+O sistema é capaz de criar usuarios, permite deposito e saque da carteira, transferência entre usuarios e reversão de operações assim como apresenta o historico de operações realizadas.
 
 ## Deploy
 
