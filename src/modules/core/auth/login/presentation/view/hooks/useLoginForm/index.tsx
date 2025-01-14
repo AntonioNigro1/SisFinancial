@@ -10,6 +10,10 @@ export const useLoginForm = () => {
   } = useForm<LoginData>({
     resolver: zodResolver(LoginSchema),
     mode: "all",
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
 
   const handleLogin = (data: LoginData) => {
