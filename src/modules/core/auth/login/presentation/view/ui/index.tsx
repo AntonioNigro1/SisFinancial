@@ -28,12 +28,12 @@ export const LoginForm = () => {
           Entrar
           <DoorOpen className="w-6 h-6" />
         </Button>
-        <Link href="/app/signin">
-          <Button variant="outline" type="button" formNoValidate>
+        <Button variant="outline" type="button" formNoValidate>
+          <Link href="/app/signin" className="w-full flex items-center justify-center gap-1">
             Nova conta
             <Plus className="w-6 h-6" />
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
     </form>
   );
