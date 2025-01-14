@@ -18,8 +18,9 @@ export const SigninForm = () => {
 
   return (
     <div className="flex flex-col justify-start items-center overflow-hidden w-full min-h-[500px]">
-      <h1 className="text-2xl font-bold">SisFinancial</h1>
-      <h2 className="text-xl font-semibold">Operações bancarias com segurança!</h2>
+      <h1 className="text-2xl font-bold text-center">SisFinancial</h1>
+      <h2 className="text-xl font-semibold text-center">Operações bancarias com segurança!</h2>
+      <h3 className="text-lg font-medium text-center">Criar nova conta</h3>
       <div className="w-full flex-1 flex items-center">
         {!delayedComponent && <AccountType accountType={accountType} updateAccountType={updateAccountType} />}
         {delayedComponent && <Form accountType={accountType} clearAccountType={clearAccountType} />}
