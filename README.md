@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SisFinancial
 
-## Getting Started
+### Requisitos
 
-First, run the development server:
+#### Modulo de autenticação
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 1 - Login [x] [ ]
+- 2 - Signin [x] [ ]
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Modulo transações bancárias
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 3 - Base autenticada -> Carteira pessoal [ ] [ ]
+- 4 - Deposito [ ] [ ]
+- 5 - Saque [ ] [ ]
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy
 
-## Learn More
+O deploy inicial esta sendo feito através da vercel, foi automatizado com a integração github - vercel, assim utilizando gitflow quando é feito o pull request para a branch main (produção) é feito o deploy automático para o seguinte link [SisFinancial](https://sis-financial.vercel.app/app/login)
 
-To learn more about Next.js, take a look at the following resources:
+## Metodologia de Desenvolvimento
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O projeto foi separado em módulos como descrito acima, primeiro esta sendo feito toda a parte visual e as validações locais do frontend, assim que o mesmo estiver completo, sera feito a API NEXTJS, e por fim a integração.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Esta sendo usado gitflow para o processo de desenvolvimento, assim é possível identificar cada commit/branch/pullrequest e o correlacionar a funcionalidade facilmente seguindo o seguinte modelo.
 
-## Deploy on Vercel
+PREFIXO/NUMERO_MODULO-FUNCIONALIDADE_DESENVOLVIDA
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+lista de prefixos:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- fix: correções no sistema
+- feat: inclusão de nova funcionalidade
+- config: configurações de ambiente/build/deploy
+- docs: alteração na documentação do projeto
+
+Conforme o andamento do desenvolvimento esta documentação é atualizada e é feito o checkmark nos módulos que estão finalizados, assim, a primeira caixa simboliza a parte visual e a segunda a integração com a API NEXTJS.
