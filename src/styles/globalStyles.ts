@@ -1,5 +1,5 @@
-'use client';
-import { createGlobalStyle } from 'styled-components';
+"use client";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -10,5 +10,8 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: ${(props) => props.theme.fonts.main};
+    background-color: ${(props) => props.theme.background};
+    height: 100vh;
+    user-select: none;
   }
 `;
