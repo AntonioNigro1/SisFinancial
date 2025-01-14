@@ -9,45 +9,43 @@ export const LoginForm = () => {
   const { control, isValid, handleLogin, handleSubmit } = useLoginForm();
 
   return (
-    <div className="w-4/5 md:w-1/2 lg:w-1/3 xl:w-1/4 flex flex-col justify-center rounded-md bg-card p-4  border">
-      <form className="w-full h-full flex flex-col items-center gap-2" onSubmit={handleSubmit(handleLogin)}>
-        <h1 className="text-2xl font-bold">SisFinancial</h1>
-        <h2 className="text-xl font-semibold">Operações bancarias com segurança!</h2>
-        <Controller
-          control={control}
-          name="email"
-          render={({ field, fieldState: { error } }) => (
-            <div className="flex flex-col gap-2 w-full">
-              <p>Email</p>
-              <div className="flex flex-col gap-1">
-                <Input {...field} />
-                {error && <p className="text-red-500">{error.message}</p>}
-              </div>
+    <form className="w-full h-full flex flex-col items-center gap-2" onSubmit={handleSubmit(handleLogin)}>
+      <h1 className="text-2xl font-bold">SisFinancial</h1>
+      <h2 className="text-xl font-semibold">Operações bancarias com segurança!</h2>
+      <Controller
+        control={control}
+        name="email"
+        render={({ field, fieldState: { error } }) => (
+          <div className="flex flex-col gap-2 w-full">
+            <p>Email</p>
+            <div className="flex flex-col gap-1">
+              <Input {...field} />
+              {error && <p className="text-red-500">{error.message}</p>}
             </div>
-          )}
-        />
-        <Controller
-          control={control}
-          name="password"
-          render={({ field, fieldState: { error } }) => (
-            <div className="flex flex-col gap-2 w-full">
-              <p>Senha</p>
-              <div className="flex flex-col gap-1">
-                <Input {...field} />
-                {error && <p className="text-red-500">{error.message}</p>}
-              </div>
+          </div>
+        )}
+      />
+      <Controller
+        control={control}
+        name="password"
+        render={({ field, fieldState: { error } }) => (
+          <div className="flex flex-col gap-2 w-full">
+            <p>Senha</p>
+            <div className="flex flex-col gap-1">
+              <Input {...field} />
+              {error && <p className="text-red-500">{error.message}</p>}
             </div>
-          )}
-        />
-        <div className="flex w-full flex-col md:flex-row gap-y-2 justify-between">
-          <Button disabled={!isValid} type="submit">
-            Entrar
-          </Button>
-          <Button variant="outline">
-            <Link href="/register">Registrar</Link>
-          </Button>
-        </div>
-      </form>
-    </div>
+          </div>
+        )}
+      />
+      <div className="flex w-full flex-col md:flex-row gap-y-2 justify-between">
+        <Button disabled={!isValid} type="submit">
+          Entrar
+        </Button>
+        <Button variant="outline" type="button" formNoValidate>
+          <Link href="/app/signin">Registrar</Link>
+        </Button>
+      </div>
+    </form>
   );
 };
