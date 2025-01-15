@@ -7,9 +7,7 @@ export const WithdrawSchema = z
   })
   .refine(
     (data) => {
-      console.log(data);
       const amountNumber = parseFloat(data.amount.replaceAll(".", "").replace(",", "."));
-      console.log(amountNumber);
       return amountNumber <= data.balance;
     },
     {
