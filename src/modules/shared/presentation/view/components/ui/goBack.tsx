@@ -13,7 +13,7 @@ export const GoBack = ({ onGoBack, isDefaultPrevented, hasLink, href }: GoBackPr
   if (hasLink && href)
     return (
       <Button variant="outline" onClick={defaultPrevented} formNoValidate>
-        <Link href={href} className="flex flex-row-reverse md:flex-row gap-1 w-full">
+        <Link href={href} className="flex flex-row-reverse md:flex-row gap-1 items-center w-full">
           <Undo2 />
           Voltar
         </Link>
