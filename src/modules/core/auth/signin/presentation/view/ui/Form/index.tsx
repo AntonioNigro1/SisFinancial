@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/lib/utils";
 import { Button } from "@/modules/shared/presentation/view/components/ui/button";
 import { GoBack } from "@/modules/shared/presentation/view/components/ui/goBack";
