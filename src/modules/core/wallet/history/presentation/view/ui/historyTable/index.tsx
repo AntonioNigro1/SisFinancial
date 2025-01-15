@@ -4,7 +4,9 @@ import { Button } from "@/modules/shared/presentation/view/components/ui/button"
 import { GoBack } from "@/modules/shared/presentation/view/components/ui/goBack";
 import { Skeleton } from "@/modules/shared/presentation/view/components/ui/skeleton";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/modules/shared/presentation/view/components/ui/table";
+import { WalletData } from "@/modules/shared/presentation/view/components/ui/walletData";
 import { useURLStates } from "@/modules/shared/presentation/view/hooks/useURLStates";
+import { useWallet } from "@/modules/shared/presentation/view/hooks/useWallet";
 import { formatCurrency, formatDateTime } from "@/modules/shared/utils/formatters";
 import { RefreshCcw } from "lucide-react";
 import { historyTableDataHeader } from "../../../../data/const/historyTableDataHeader";
@@ -21,8 +23,8 @@ const mockData: HistoryTableData[] = [
 
 export const HistoryTable = () => {
   const { handleSetUrlState } = useURLStates();
+  const { showData } = useWallet();
 
-  const showData = true;
   const actionComponent = (id: number, type: OperationTypeEnum) => {
     return (
       <Button
@@ -41,6 +43,9 @@ export const HistoryTable = () => {
   };
   return (
     <div className="flex flex-col gap-2 mt-2">
+      <div className="w-full flex items-end">
+        <WalletData />
+      </div>
       <Table>
         <TableHeader>
           <TableRow className="">
@@ -66,6 +71,9 @@ export const HistoryTable = () => {
           {!showData &&
             mockData.map((entry) => (
               <TableRow key={entry.id}>
+                <TableCell>
+                  <Skeleton className="h-6 w-full" key={entry.id} />
+                </TableCell>
                 <TableCell>
                   <Skeleton className="h-6 w-full" key={entry.id} />
                 </TableCell>
