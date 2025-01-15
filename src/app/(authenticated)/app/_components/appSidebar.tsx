@@ -8,7 +8,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/modules/shared/presentation/view/components/ui/sidebar";
-import { DollarSign, HandCoins, WalletMinimal } from "lucide-react";
+import { ChartNoAxesColumn, DollarSign, HandCoins, Handshake, WalletMinimal } from "lucide-react";
+import Link from "next/link";
 
 const items = [
   {
@@ -18,13 +19,23 @@ const items = [
   },
   {
     title: "Saque",
-    url: "/app/deposit",
+    url: "/app/withdraw",
     icon: HandCoins,
   },
   {
     title: "Deposito",
-    url: "/app/withdraw",
+    url: "/app/deposit",
     icon: DollarSign,
+  },
+  {
+    title: "Transferência",
+    url: "/app/transference",
+    icon: Handshake,
+  },
+  {
+    title: "Extrato",
+    url: "/app/history",
+    icon: ChartNoAxesColumn,
   },
 ];
 
@@ -41,10 +52,10 @@ export function AppSidebar() {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
