@@ -24,8 +24,8 @@ export const Form = () => {
     >
       <WalletData />
       <p>
-        {accountType === AccountTypeEnum.FISICA && "Para pessoa física."}
-        {accountType === AccountTypeEnum.JURIDICA && "Para pessoa jurídica."}
+        {accountType === AccountTypeEnum.FISICA && "Transferindo para pessoa física."}
+        {accountType === AccountTypeEnum.JURIDICA && "Transferindo para pessoa jurídica."}
       </p>
       <IfRender condition={accountType === AccountTypeEnum.FISICA}>
         <Controller

@@ -17,7 +17,7 @@ export const RevertModal = () => {
           <h1 className="text-xl">Reversão de transferências</h1>
           <p className="text-lg">Tem certeza que deseja reverter a operação ?</p>
           <p className="text-md">A reversão esta sujeita a disponibilidade de saldo do destinatório original da transferência.</p>
-          <div className="flex flex-col-reverse justify-between w-full gap-y-2 md:flex-row">
+          <div className="flex flex-col justify-between w-full gap-y-2 md:flex-row">
             <Confirmation />
             <GoBack onGoBack={handleCloseModal} />
           </div>

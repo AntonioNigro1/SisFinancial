@@ -19,7 +19,10 @@ export const AccountTypeSelector = () => {
         Para pessoa jurídica
         <Building2 className="w-6 h-6" />
       </Button>
-      <div className="w-full flex items-center justify-end">
+      <div className="w-full my-2">
+        <hr />
+      </div>
+      <div className="w-full flex items-center md:justify-end  justify-center">
         <GoBack hasLink href="/app" />
       </div>
     </div>
