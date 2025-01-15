@@ -1,3 +1,6 @@
+"use client";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/modules/shared/presentation/view/components/ui/button";
 import {
   Sidebar,
   SidebarContent,
@@ -10,6 +13,7 @@ import {
 } from "@/modules/shared/presentation/view/components/ui/sidebar";
 import { ChartNoAxesColumn, DollarSign, HandCoins, Handshake, WalletMinimal } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const items = [
   {
@@ -40,6 +44,7 @@ const items = [
 ];
 
 export function AppSidebar() {
+  const pathname = usePathname();
   return (
     <Sidebar>
       <SidebarContent>
@@ -51,7 +56,15 @@ export function AppSidebar() {
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton
+                    asChild
+                    className={cn(
+                      buttonVariants({
+                        variant: pathname === item.url ? "default" : "ghost",
+                      }),
+                      "justify-start"
+                    )}
+                  >
                     <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
