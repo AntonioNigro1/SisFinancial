@@ -1,13 +1,17 @@
+"use client";
 import { Button } from "@/modules/shared/presentation/view/components/ui/button";
 import { Skeleton } from "@/modules/shared/presentation/view/components/ui/skeleton";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/modules/shared/presentation/view/components/ui/table";
+import { useWallet } from "@/modules/shared/presentation/view/hooks/useWallet";
 import { formatCurrency, formatDateTime } from "@/modules/shared/utils/formatters";
 import { ChartNoAxesColumn } from "lucide-react";
 import Link from "next/link";
 import { historyTableHeaders } from "../../../../data/const/history/tableHeaders";
 import { HistoryProps } from "../../../../domain/types/historyProps";
 
-export const History = ({ showData, data }: HistoryProps) => {
+export const History = ({ data }: HistoryProps) => {
+  const { showData } = useWallet();
+
   return (
     <div className="w-full flex flex-col rounded-lg bg-card p-4 border">
       <div className="w-full flex-col gap-3 flex items-center justify-center">

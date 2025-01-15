@@ -1,4 +1,4 @@
-import { AccountTypeEnum } from "../enum/accountTypeEnum";
+import { AccountTypeEnum } from "../../core/auth/signin/domain/enum/accountTypeEnum";
 
 export type IAccountType = AccountTypeEnum | undefined;
 

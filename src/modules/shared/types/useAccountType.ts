@@ -1,5 +1,7 @@
 import { IAccountTypeStore } from "./accountTypeStore";
 
 export interface IUseAccountType extends IAccountTypeStore {
-  clearAccountType: () => void;
+  clearAccountType: VoidFunction;
+  setAccountFisica: VoidFunction;
+  setAccountJuridica: VoidFunction;
 }
