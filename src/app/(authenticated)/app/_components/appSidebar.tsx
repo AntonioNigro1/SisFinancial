@@ -8,7 +8,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/modules/shared/presentation/view/components/ui/sidebar";
-import { DollarSign, HandCoins, WalletMinimal } from "lucide-react";
+import { ChartNoAxesColumn, DollarSign, HandCoins, Handshake, WalletMinimal } from "lucide-react";
 
 const items = [
   {
@@ -25,6 +25,16 @@ const items = [
     title: "Deposito",
     url: "/app/withdraw",
     icon: DollarSign,
+  },
+  {
+    title: "Transferência",
+    url: "/app/transference",
+    icon: Handshake,
+  },
+  {
+    title: "Extrato",
+    url: "/app/history",
+    icon: ChartNoAxesColumn,
   },
 ];
 
