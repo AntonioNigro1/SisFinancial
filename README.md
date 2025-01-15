@@ -47,3 +47,7 @@ lista de prefixos:
 - docs: alteração na documentação do projeto
 
 Conforme o andamento do desenvolvimento esta documentação é atualizada e é feito o checkmark nos módulos que estão finalizados, assim, a primeira caixa simboliza a parte visual e a segunda a integração com a API NEXTJS.
+
+Entrando mais a fundo no gitflow, a branch default é a develop, nossa branch de desenvolvimento, criamos novas branchs a partir dela com o sistema mencionado acima, e ao finalizar uma implementação é feito um pull request de volta para a develop, quando as implementações de X módulo estiverem concluídas é feito um pull request da develop para a branch release, esta branch é a branch de testes, ela deveria deployar o código para um ambiente de testes (o qual não foi configurado devido a deadline do projeto), caso todos os testes nesse ambiente sejam bem sucedido é feito o pull request da release para a branch main, onde a integração do git-vercel faz o deploy automaticamente para o ambiente de produção configurado na vercel, segue um diagrama para exemplificar este processo
+
+![diagrama gitflow](./docs/gitflowDiagrama.jpg)
