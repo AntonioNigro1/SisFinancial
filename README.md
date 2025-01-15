@@ -1,5 +1,13 @@
 # SisFinancial
 
+<p align="center">
+  <img src="./docs/telaInicialSistema.jpg" alt="Tela inicial do sistema" width="75%" style="vertical-align: middle;" />
+  <img src="./docs/inicioMobile.jpg" alt="Tela inicial do sistema mobile" width="24%" style="vertical-align: middle;" />
+</p>
+
+![tela de deposito](./docs/deposito.jpg)
+![tela de historico](./docs/historico.jpg)
+
 ### Requisitos
 
 #### Modulo de autenticação
@@ -13,10 +21,11 @@
 - 4 - Deposito [x] [ ]
 - 5 - Saque [x] [ ]
 - 6 - transferência [x] [ ]
-- 7 - reverter operações [ ] [ ]
+- 7 - reverter operações [x] [ ]
 
 O sistema é capaz de criar usuarios, permite deposito e saque da carteira, transferência entre usuarios e reversão de operações assim como apresenta o historico de operações realizadas.
-Para as validações esta sendo usado React-hook-form com schemas/validadores do ZOD, para dados compartilhados esta sendo usado Zustand criando stores que são consumidas por hooks, ja para a estilização usamos TailwindCSS com a biblioteca shadcnui, a qual é uma biblioteca de componentes diferentes, ela instala os componentes no projeto, dando total liberdade para customizações.
+Para as validações esta sendo usado React-hook-form com schemas/validadores do ZOD, para dados compartilhados esta sendo usado Zustand criando stores que são consumidas por hooks, ja para a estilização usamos TailwindCSS com a biblioteca shaduf, a qual é uma biblioteca de componentes diferentes, ela instala os componentes no projeto, dando total liberdade para customizações.
+Para mostrar modais foi criado uma hook useURLStates, que utiliza a hook setSearchParams, assim é possível controlar o estado do modal através da URL, também permitindo enviar um link para o usuario caso o mesmo não esteja encontrado certa funcionalidade
 
 ## Deploy
 
