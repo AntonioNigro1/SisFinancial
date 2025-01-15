@@ -1,5 +1,5 @@
 import { walletStore } from "../../../application/store/walletStore";
-import { IWalletStore } from "../../../domain/types/walletStore";
+import { IWalletStore } from "../../../types/walletStore";
 
 export const useWallet = (): IWalletStore => {
   const balance = walletStore((state) => state.balance);
