@@ -10,8 +10,8 @@
 #### Modulo transações bancárias
 
 - 3 - Base autenticada -> Carteira pessoal [x] [ ]
-- 4 - Deposito [ ] [ ]
-- 5 - Saque [ ] [ ]
+- 4 - Deposito [x] [ ]
+- 5 - Saque [x] [ ]
 - 6 - transferência [ ] [ ]
 - 7 - reverter operações [ ] [ ]
 
