@@ -4,7 +4,8 @@ import { TextInput } from "@/modules/shared/presentation/view/components/ui/text
 import { useWallet } from "@/modules/shared/presentation/view/hooks/useWallet";
 import { defaultPrevented } from "@/modules/shared/utils/defaultPrevented";
 import { formatCurrency, formatCurrencyOnInput } from "@/modules/shared/utils/formatters";
-import { CheckCircle, Eye, EyeClosed, Link, Undo2 } from "lucide-react";
+import { CheckCircle, Eye, EyeClosed, Undo2 } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 import { Controller } from "react-hook-form";
 import { useDeposit } from "../hooks/useDeposit";
