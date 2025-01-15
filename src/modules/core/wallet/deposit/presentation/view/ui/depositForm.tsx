@@ -24,7 +24,7 @@ export const DepositForm = () => {
   };
 
   return (
-    <div className="w-4/5 md:w-1/2 lg:w-1/3 xl:w-1/4 flex flex-col justify-center rounded-md bg-card p-4 border">
+    <div className="w-4/5 md:1/2 xl:w-1/3 flex flex-col justify-center rounded-md bg-card p-4 border">
       <h1 className="text-2xl text-center">Depositar</h1>
       <form onSubmit={handleSubmit(handleDeposit)} className="flex flex-col gap-2 mt-4">
         <div className="flex justify-between items-center">
@@ -50,7 +50,7 @@ export const DepositForm = () => {
             Confirmar <CheckCircle className="w-5 h-5" />
           </Button>
           <Button variant="outline">
-            <Link href="/app" className="w-full flex items-center gap-1">
+            <Link href="/app" className="w-full flex items-center justify-center flex-row-reverse md:flex-row gap-1">
               <Undo2 className="w-5 h-5" />
               Voltar
             </Link>
