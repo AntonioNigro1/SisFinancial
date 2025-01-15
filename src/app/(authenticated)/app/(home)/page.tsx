@@ -1,9 +1,9 @@
 "use client";
 import { HistoryData, OperationTypeEnum } from "@/modules/core/wallet/base/domain/types/historyProps";
-import { useWallet } from "@/modules/core/wallet/base/presentation/view/hooks/useWallet";
 import { Header } from "@/modules/core/wallet/base/presentation/view/ui/header";
 import { History } from "@/modules/core/wallet/base/presentation/view/ui/history";
 import { Navigator } from "@/modules/core/wallet/base/presentation/view/ui/navigator";
+import { useWallet } from "@/modules/shared/presentation/view/hooks/useWallet";
 
 const mockData: HistoryData[] = [
   { amount: 100, date: "2023-01-01", id: 1, finalBalance: 1000, receiver: "Antonio Fontão Nigro", type: OperationTypeEnum.DEPOSIT },

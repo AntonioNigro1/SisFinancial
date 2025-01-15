@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { IWalletStore } from "../../domain/types/walletStore";
+import { IWalletStore } from "../../types/walletStore";
 
 const walletStore = create<IWalletStore>((set) => ({
   balance: 1200,

@@ -32,6 +32,10 @@ export const removeFormat = (valor: string): number => {
   return Number(valor.replace(/[.,-/]/g, ""));
 };
 
+export const formatCurrencyOnInput = (value: string): string => {
+  return ((Number(value.replace(/\D/g, "")) / 100).toFixed(2) + "").replace(".", ",").replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+};
+
 export const formatCurrency = (value: number): string => {
   return value
     .toFixed(2)
