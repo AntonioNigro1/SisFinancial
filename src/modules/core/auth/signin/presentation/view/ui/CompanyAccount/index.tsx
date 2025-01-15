@@ -16,7 +16,14 @@ export const CompanyAccount = ({ control }: AccountProps) => {
         control={control}
         name="cnpj"
         render={({ field: { onChange, ...rest }, fieldState: { error } }) => (
-          <TextInput label="CNPJ" maxLength={18} onChange={(e) => onChange(formatCNPJ(e.target.value))} errorMessage={error?.message} {...rest} />
+          <TextInput
+            label="CNPJ"
+            maxLength={18}
+            onChange={(e) => onChange(formatCNPJ(e.target.value))}
+            placeholder="00.000.000/0000-00"
+            errorMessage={error?.message}
+            {...rest}
+          />
         )}
       />
     </Fragment>

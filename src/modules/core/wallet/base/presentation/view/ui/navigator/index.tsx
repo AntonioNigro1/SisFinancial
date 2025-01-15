@@ -1,5 +1,5 @@
 import { Button } from "@/modules/shared/presentation/view/components/ui/button";
-import { DollarSign, HandCoins } from "lucide-react";
+import { DollarSign, HandCoins, Handshake } from "lucide-react";
 import Link from "next/link";
 
 export const Navigator = () => {
@@ -20,7 +20,7 @@ export const Navigator = () => {
       <Button variant="outline" className="w-full">
         <Link href="/app/transference" className="w-full flex items-center justify-center gap-1">
           Transferir
-          <HandCoins className="w-6 h-6" />
+          <Handshake className="w-6 h-6" />
         </Link>
       </Button>
     </div>
