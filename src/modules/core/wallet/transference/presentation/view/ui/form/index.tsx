@@ -5,6 +5,7 @@ import { Confirmation } from "@/modules/shared/presentation/view/components/ui/c
 import { GoBack } from "@/modules/shared/presentation/view/components/ui/goBack";
 import { IfRender } from "@/modules/shared/presentation/view/components/ui/ifRender";
 import { TextInput } from "@/modules/shared/presentation/view/components/ui/textInput";
+import { WalletData } from "@/modules/shared/presentation/view/components/ui/walletData";
 import { useAccountType } from "@/modules/shared/presentation/view/hooks/useAccountType";
 import { formatCNPJ, formatCPF, formatCurrencyOnInput } from "@/modules/shared/utils/formatters";
 import { Controller } from "react-hook-form";
@@ -21,6 +22,7 @@ export const Form = () => {
         !accountType ? "translate-x-full" : "translate-x-0"
       )}
     >
+      <WalletData />
       <p>
         {accountType === AccountTypeEnum.FISICA && "Para pessoa física."}
         {accountType === AccountTypeEnum.JURIDICA && "Para pessoa jurídica."}
