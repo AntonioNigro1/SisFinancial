@@ -1,6 +1,7 @@
 "use client";
 import { OperationTypeEnum } from "@/modules/core/wallet/base/domain/types/historyProps";
 import { Button } from "@/modules/shared/presentation/view/components/ui/button";
+import { GoBack } from "@/modules/shared/presentation/view/components/ui/goBack";
 import { Skeleton } from "@/modules/shared/presentation/view/components/ui/skeleton";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/modules/shared/presentation/view/components/ui/table";
 import { useURLStates } from "@/modules/shared/presentation/view/hooks/useURLStates";
@@ -85,6 +86,9 @@ export const HistoryTable = () => {
         </TableBody>
       </Table>
       <Paginator currentPage={1} totalPages={1} onPageChange={() => console.log("first")} />
+      <div className="flex w-full justify-start">
+        <GoBack hasLink href="/app" />
+      </div>
     </div>
   );
 };
