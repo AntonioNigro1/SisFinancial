@@ -1,3 +1,4 @@
+"use client";
 import { useAccountType } from "@/modules/shared/presentation/view/hooks/useAccountType";
 import { useWallet } from "@/modules/shared/presentation/view/hooks/useWallet";
 import { zodResolver } from "@hookform/resolvers/zod";
