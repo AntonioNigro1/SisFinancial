@@ -12,10 +12,11 @@
 - 3 - Base autenticada -> Carteira pessoal [x] [ ]
 - 4 - Deposito [x] [ ]
 - 5 - Saque [x] [ ]
-- 6 - transferência [ ] [ ]
+- 6 - transferência [x] [ ]
 - 7 - reverter operações [ ] [ ]
 
 O sistema é capaz de criar usuarios, permite deposito e saque da carteira, transferência entre usuarios e reversão de operações assim como apresenta o historico de operações realizadas.
+Para as validações esta sendo usado React-hook-form com schemas/validadores do ZOD, para dados compartilhados esta sendo usado Zustand criando stores que são consumidas por hooks, ja para a estilização usamos TailwindCSS com a biblioteca shadcnui, a qual é uma biblioteca de componentes diferentes, ela instala os componentes no projeto, dando total liberdade para customizações.
 
 ## Deploy
 

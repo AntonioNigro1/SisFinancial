@@ -10,13 +10,20 @@ export const PersonalAccount = ({ control }: AccountProps) => {
       <Controller
         control={control}
         name="name"
-        render={({ field, fieldState: { error } }) => <TextInput label="Nome" {...field} errorMessage={error?.message} />}
+        render={({ field, fieldState: { error } }) => <TextInput label="Nome" {...field} placeholder="Nome completo" errorMessage={error?.message} />}
       />
       <Controller
         control={control}
         name="cpf"
         render={({ field: { onChange, ...rest }, fieldState: { error } }) => (
-          <TextInput label="CPF" maxLength={14} onChange={(e) => onChange(formatCPF(e.target.value))} errorMessage={error?.message} {...rest} />
+          <TextInput
+            label="CPF"
+            maxLength={14}
+            onChange={(e) => onChange(formatCPF(e.target.value))}
+            placeholder="000.000.000/00"
+            errorMessage={error?.message}
+            {...rest}
+          />
         )}
       />
     </Fragment>
