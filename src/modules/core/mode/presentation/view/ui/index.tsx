@@ -7,7 +7,7 @@ import { useMode } from "../hooks/useMode";
 const Mode = () => {
   const { mode, updateMode } = useMode();
   return (
-    <div className="absolute right-4 bottom-4">
+    <div className="fixed right-4 bottom-4">
       <Button variant="outline" className={cn("rounded-full w-8 h-8 p-0", mode === "dark" ? "hidden" : "")} onClick={() => updateMode("dark")}>
         <Sun className="w-6 h-6" />
       </Button>
