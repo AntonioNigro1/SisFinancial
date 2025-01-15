@@ -10,7 +10,9 @@ export const CompanyAccount = ({ control }: AccountProps) => {
       <Controller
         control={control}
         name="companyName"
-        render={({ field, fieldState: { error } }) => <TextInput label="Razão social" {...field} errorMessage={error?.message} />}
+        render={({ field, fieldState: { error } }) => (
+          <TextInput label="Razão social" placeholder="Razão social da empresa" {...field} errorMessage={error?.message} />
+        )}
       />
       <Controller
         control={control}

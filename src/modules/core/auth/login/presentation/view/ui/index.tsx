@@ -27,11 +27,13 @@ export const LoginForm = () => {
       />
       <div className="flex w-full flex-col md:flex-row gap-y-2 justify-between">
         <Button disabled={!isValid} type="submit">
-          Entrar
-          <DoorOpen className="w-6 h-6" />
+          <Link href="/app" className="w-full flex items-center justify-center gap-1">
+            Entrar
+            <DoorOpen className="w-6 h-6" />
+          </Link>
         </Button>
         <Button variant="outline" type="button" formNoValidate>
-          <Link href="/app/signin" className="w-full flex items-center justify-center gap-1">
+          <Link href="/signin" className="w-full flex items-center justify-center gap-1">
             Nova conta
             <Plus className="w-6 h-6" />
           </Link>
