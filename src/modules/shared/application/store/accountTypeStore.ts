@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { IAccountType, IAccountTypeStore } from "../../domain/types/accountTypeStore";
+import { IAccountType, IAccountTypeStore } from "../../types/accountTypeStore";
 
 const accountTypeStore = create<IAccountTypeStore>((set) => ({
   accountType: undefined,

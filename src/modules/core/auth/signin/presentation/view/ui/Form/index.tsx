@@ -1,23 +1,19 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/modules/shared/presentation/view/components/ui/button";
+import { GoBack } from "@/modules/shared/presentation/view/components/ui/goBack";
 import { IfRender } from "@/modules/shared/presentation/view/components/ui/ifRender";
 import { TextInput } from "@/modules/shared/presentation/view/components/ui/textInput";
-import { defaultPrevented } from "@/modules/shared/utils/defaultPrevented";
-import { CheckCircle2, Eraser, Undo2Icon } from "lucide-react";
+import { useAccountType } from "@/modules/shared/presentation/view/hooks/useAccountType";
+import { CheckCircle2, Eraser } from "lucide-react";
 import { Controller } from "react-hook-form";
 import { AccountTypeEnum } from "../../../../domain/enum/accountTypeEnum";
-import { FormProps } from "../../../../domain/types/formProps";
 import { useAccountForm } from "../../hooks/useAccountForm";
 import { CompanyAccount } from "../CompanyAccount";
 import { PersonalAccount } from "../PersonalAccount";
 
-export const Form = ({ accountType, clearAccountType }: FormProps) => {
+export const Form = () => {
+  const { accountType, clearAccountType } = useAccountType();
   const { control, handleSignin, handleSubmit, isValid, resetForm } = useAccountForm(accountType);
-
-  const handleGoBack = (e: React.MouseEvent<HTMLButtonElement>) => {
-    defaultPrevented(e);
-    clearAccountType();
-  };
 
   return (
     <div
@@ -38,17 +34,23 @@ export const Form = ({ accountType, clearAccountType }: FormProps) => {
         <Controller
           control={control}
           name="email"
-          render={({ field, fieldState: { error } }) => <TextInput label="Email" {...field} type="email" errorMessage={error?.message} />}
+          render={({ field, fieldState: { error } }) => (
+            <TextInput label="Email" placeholder="xxxxxxx@xxxxx.com" {...field} type="email" errorMessage={error?.message} />
+          )}
         />
         <Controller
           control={control}
           name="password"
-          render={({ field, fieldState: { error } }) => <TextInput label="Senha" {...field} type="password" errorMessage={error?.message} />}
+          render={({ field, fieldState: { error } }) => (
+            <TextInput label="Senha" placeholder="******" {...field} type="password" errorMessage={error?.message} />
+          )}
         />
         <Controller
           control={control}
           name="confirmPassword"
-          render={({ field, fieldState: { error } }) => <TextInput label="Confirmar Senha" {...field} type="password" errorMessage={error?.message} />}
+          render={({ field, fieldState: { error } }) => (
+            <TextInput label="Confirmar Senha" placeholder="******" {...field} type="password" errorMessage={error?.message} />
+          )}
         />
 
         <div className="flex w-full flex-col md:flex-row gap-y-2 justify-between">
@@ -61,10 +63,7 @@ export const Form = ({ accountType, clearAccountType }: FormProps) => {
               <Eraser className="w-6 h-6" />
             </Button>
           </div>
-          <Button variant="outline" className="flex-row-reverse md:flex-row" onClick={handleGoBack} formNoValidate>
-            <Undo2Icon className="w-6 h-6" />
-            Voltar
-          </Button>
+          <GoBack onGoBack={clearAccountType} isDefaultPrevented />
         </div>
       </form>
     </div>

@@ -7,6 +7,5 @@ export enum OperationTypeEnum {
 export type HistoryData = { amount: number; date: string; id: number; finalBalance: number; receiver: string; type: OperationTypeEnum };
 
 export interface HistoryProps {
-  showData: boolean;
   data: HistoryData[];
 }

@@ -16,12 +16,14 @@ export const LoginForm = () => {
       <Controller
         control={control}
         name="email"
-        render={({ field, fieldState: { error } }) => <TextInput label="Email" {...field} type="email" errorMessage={error?.message} />}
+        render={({ field, fieldState: { error } }) => (
+          <TextInput label="Email" placeholder="xxxxxxx@xxxxx.com" {...field} type="email" errorMessage={error?.message} />
+        )}
       />
       <Controller
         control={control}
         name="password"
-        render={({ field, fieldState: { error } }) => <TextInput label="Senha" {...field} type="password" errorMessage={error?.message} />}
+        render={({ field, fieldState: { error } }) => <TextInput placeholder="******" label="Senha" {...field} type="password" errorMessage={error?.message} />}
       />
       <div className="flex w-full flex-col md:flex-row gap-y-2 justify-between">
         <Button disabled={!isValid} type="submit">

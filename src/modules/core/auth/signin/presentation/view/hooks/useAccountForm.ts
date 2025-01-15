@@ -1,8 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { IAccountType } from "../../../../../../shared/types/accountTypeStore";
 import { SigninData, SigninSchema } from "../../../application/schema/signin-schema";
-import { IAccountType } from "../../../domain/types/accountTypeStore";
 import { IUseAccountForm } from "../../../domain/types/useAccountForm";
 
 export const useAccountForm = (accountType: IAccountType): IUseAccountForm => {
