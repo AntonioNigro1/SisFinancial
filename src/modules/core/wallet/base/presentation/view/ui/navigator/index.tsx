@@ -12,6 +12,10 @@ export const Navigator = () => {
         Sacar
         <HandCoins className="w-6 h-6" />
       </Button>
+      <Button variant="outline" className="w-full">
+        Transferir
+        <HandCoins className="w-6 h-6" />
+      </Button>
     </div>
   );
 };

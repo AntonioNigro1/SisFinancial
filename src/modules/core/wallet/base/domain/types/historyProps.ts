@@ -1,4 +1,10 @@
-export type HistoryData = { amount: number; date: string; id: number; finalBalance: number };
+export enum OperationTypeEnum {
+  TRANSFER = "transferência",
+  DEPOSIT = "deposito",
+  WITHDRAW = "saque",
+}
+
+export type HistoryData = { amount: number; date: string; id: number; finalBalance: number; receiver: string; type: OperationTypeEnum };
 
 export interface HistoryProps {
   showData: boolean;
