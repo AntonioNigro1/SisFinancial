@@ -8,11 +8,11 @@ import { CheckCircle, Eye, EyeClosed, Undo2 } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Controller } from "react-hook-form";
-import { useDeposit } from "../hooks/useDeposit";
+import { useWithdraw } from "../hooks/useWithdraw";
 
-export const DepositForm = () => {
+export const WithdrawForm = () => {
   const { balance, showData, updateShowData } = useWallet();
-  const { control, handleDeposit, handleSubmit, isValid } = useDeposit();
+  const { control, handleWithdraw, handleSubmit, isValid } = useWithdraw();
 
   const dataShown = (e: React.MouseEvent) => {
     defaultPrevented(e);
@@ -25,8 +25,8 @@ export const DepositForm = () => {
 
   return (
     <div className="w-4/5 md:w-1/2 lg:w-1/3 xl:w-1/4 flex flex-col justify-center rounded-md bg-card p-4 border">
-      <h1 className="text-2xl text-center">Depositar</h1>
-      <form onSubmit={handleSubmit(handleDeposit)} className="flex flex-col gap-2 mt-4">
+      <h1 className="text-2xl text-center">Sacar</h1>
+      <form onSubmit={handleSubmit(handleWithdraw)} className="flex flex-col gap-2 mt-4">
         <div className="flex justify-between items-center">
           <p>Saldo atual: {showData ? `${formatCurrency(balance ?? 0)} R$` : "**"}</p>
           <Button variant="ghost" size="icon" title="Mostrar dados" className={showData ? "hidden" : ""} onClick={dataShown}>
