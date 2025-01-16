@@ -1,14 +1,15 @@
+import { parseCurrencyToNumber } from "@/modules/shared/utils/formatters";
 import { z } from "zod";
 
 export const WithdrawSchema = z
   .object({
     amount: z.string().refine((data) => data !== "0,00", { message: "Campo obrigatório" }),
-    balance: z.number(),
+    balance: z.string(),
+    userId: z.string(),
   })
   .refine(
     (data) => {
-      const amountNumber = parseFloat(data.amount.replaceAll(".", "").replace(",", "."));
-      return amountNumber <= data.balance;
+      return parseCurrencyToNumber(data.balance) >= parseCurrencyToNumber(data.amount);
     },
     {
       message: "O valor de saque não pode ser maior que o saldo.",

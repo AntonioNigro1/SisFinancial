@@ -1,12 +1,25 @@
 import { create } from "zustand";
-import { IWalletStore } from "../../types/walletStore";
+import { IWalletStore, WalletUser } from "../../types/walletStore";
 
 const walletStore = create<IWalletStore>((set) => ({
-  balance: 1200,
-  name: "Antonio Fontão Nigro",
+  user: {
+    name: "",
+    balance: "",
+    userId: "",
+  },
   showData: false,
   updateShowData: (showData: boolean) => {
     set({ showData });
+  },
+  updateBalance: (user: WalletUser, balance: string) => {
+    set({ user: { ...user, balance } });
+  },
+  updateUser: (user: WalletUser) => {
+    set({ user });
+  },
+  loading: false,
+  setLoading: (loading: boolean) => {
+    set({ loading });
   },
 }));
 

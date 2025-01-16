@@ -1,14 +1,16 @@
-import { AccountTypeEnum } from "@/modules/core/auth/signin/domain/enum/accountTypeEnum";
+import { AccountTypeEnum } from "@/modules/core/auth/signup/domain/enum/accountTypeEnum";
+import { parseCurrencyToNumber } from "@/modules/shared/utils/formatters";
 import { validateCNPJ, validateCPF } from "@/modules/shared/utils/validators";
 import { z } from "zod";
 
 export const TransferenceSchema = z
   .object({
     amount: z.string().refine((data) => data !== "0,00", { message: "Campo obrigatório" }),
-    balance: z.number(),
+    balance: z.string(),
     accountType: z.nativeEnum(AccountTypeEnum).optional(),
     cpf: z.string().optional(),
     cnpj: z.string().optional(),
+    userId: z.string(),
   })
   .refine(
     (data) => {
@@ -60,10 +62,7 @@ export const TransferenceSchema = z
   )
   .refine(
     (data) => {
-      console.log(data);
-      const amountNumber = parseFloat(data.amount.replaceAll(".", "").replace(",", "."));
-      console.log(amountNumber);
-      return amountNumber <= data.balance;
+      return parseCurrencyToNumber(data.balance) >= parseCurrencyToNumber(data.amount);
     },
     {
       message: "O valor da transferência não pode ser maior que o saldo.",

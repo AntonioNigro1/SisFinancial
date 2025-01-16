@@ -7,6 +7,7 @@
 
 ![tela de deposito](./docs/deposito.jpg)
 ![tela de historico](./docs/historico.jpg)
+![tela de transferencia](./docs/transferencia.jpg)
 
 ### Requisitos
 
@@ -51,3 +52,93 @@ Conforme o andamento do desenvolvimento esta documentação é atualizada e é f
 Entrando mais a fundo no gitflow, a branch default é a develop, nossa branch de desenvolvimento, criamos novas branchs a partir dela com o sistema mencionado acima, e ao finalizar uma implementação é feito um pull request de volta para a develop, quando as implementações de X módulo estiverem concluídas é feito um pull request da develop para a branch release, esta branch é a branch de testes, ela deveria deployar o código para um ambiente de testes (o qual não foi configurado devido a deadline do projeto), caso todos os testes nesse ambiente sejam bem sucedido é feito o pull request da release para a branch main, onde a integração do git-vercel faz o deploy automaticamente para o ambiente de produção configurado na vercel, segue um diagrama para exemplificar este processo
 
 ![diagrama gitflow](./docs/gitflowDiagrama.jpg)
+
+## Rotas
+
+As rotas da api são as seguintes
+
+/api/auth/signup
+
+Recebe body:
+
+    accountType: AccountTypeEnum
+    cpf:string
+    cnpj:string
+    companyName:string
+    name:string
+    email:string
+    password: string
+    confirmPassword:string
+
+/api/auth/logout
+
+/api/balance
+
+Recebe parâmetro:
+
+    userId: string
+
+/api/company
+
+Recebe parâmetro:
+
+    cnpj: string
+
+/api/deposit
+
+Recebe body:
+
+    amount: string
+    userId: string
+
+/api/history
+
+Recebe parâmetro:
+
+    userId: string
+
+Recebe query:
+
+    page: string
+    pageSize: string
+
+/api/history/revert
+
+Recebe parâmetro:
+
+    userId: string
+    transactionId: string
+
+/api/person
+
+Recebe parâmetro:
+
+    cpf: string
+
+/api/transference
+
+Recebe parâmetro:
+
+    userId: string
+    receiverId: string
+
+Recebe body:
+
+    amount: string
+    userId: string
+    balance: string
+    accountType?: AccountTypeEnum
+    cpf?: string
+    cnpj?: string
+
+/api/withdraw
+
+Recebe body:
+
+    amount: string;
+    userId: string;
+    balance: string;
+
+## Banco de dados
+
+Foi utilizado um banco de dados postgres rodando em docker e utilizando prisma como ORM para operar o banco.

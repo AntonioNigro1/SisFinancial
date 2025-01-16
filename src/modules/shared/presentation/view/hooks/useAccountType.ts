@@ -1,4 +1,4 @@
-import { AccountTypeEnum } from "@/modules/core/auth/signin/domain/enum/accountTypeEnum";
+import { AccountTypeEnum } from "@/modules/core/auth/signup/domain/enum/accountTypeEnum";
 import { useCallback } from "react";
 import { accountTypeStore } from "../../../application/store/accountTypeStore";
 import { IUseAccountType } from "../../../types/useAccountType";

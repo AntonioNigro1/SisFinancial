@@ -1,6 +1,7 @@
 import "@/app/globals.css";
 import Mode from "@/modules/core/mode/presentation/view/ui";
 import AppTheme from "@/modules/shared/app-theme";
+import { Toaster } from "@/modules/shared/presentation/view/components/ui/toaster";
 import { GlobalStyle } from "@/styles/globalStyles";
 import { defaultTheme } from "@/styles/themes/default";
 import type { Metadata } from "next";
@@ -28,6 +29,7 @@ export default async function RootLayout({ children }: LayoutProps) {
           <GlobalStyle />
           {children}
           <Mode />
+          <Toaster />
         </AppTheme>
       </body>
     </html>

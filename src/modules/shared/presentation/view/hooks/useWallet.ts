@@ -2,15 +2,13 @@ import { walletStore } from "../../../application/store/walletStore";
 import { IWalletStore } from "../../../types/walletStore";
 
 export const useWallet = (): IWalletStore => {
-  const balance = walletStore((state) => state.balance);
-  const showData = walletStore((state) => state.showData);
-  const updateShowData = walletStore((state) => state.updateShowData);
-  const name = walletStore((state) => state.name);
-
   return {
-    balance,
-    showData,
-    updateShowData,
-    name,
+    user: walletStore((state) => state.user),
+    showData: walletStore((state) => state.showData),
+    updateShowData: walletStore((state) => state.updateShowData),
+    updateBalance: walletStore((state) => state.updateBalance),
+    updateUser: walletStore((state) => state.updateUser),
+    loading: walletStore((state) => state.loading),
+    setLoading: walletStore((state) => state.setLoading),
   };
 };

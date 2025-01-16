@@ -1,6 +1,6 @@
 import { WalletData } from "@/modules/shared/presentation/view/components/ui/walletData";
 
-export const Header = () => {
+export const Header = async () => {
   return (
     <div className="w-full flex-col md:flex-row gap-y-2 flex items-center justify-between">
       <div className="flex items-center justify-between w-full md:w-fit">

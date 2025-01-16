@@ -1,3 +1,12 @@
+export function parseCurrencyToNumber(value: string) {
+  return parseFloat(value.replaceAll(".", "").replace(",", "."));
+}
+
+export function capitalizeFirstLetter(text: string): string {
+  if (!text) return text;
+  return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+}
+
 export function formatCPF(cpf: string): string {
   cpf = cpf.replace(/\D/g, "");
 
