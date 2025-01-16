@@ -30,7 +30,7 @@ Para mostrar modais foi criado uma hook useURLStates, que utiliza a hook setSear
 
 ## Deploy
 
-O deploy inicial esta sendo feito através da vercel, foi automatizado com a integração github - vercel, assim utilizando gitflow quando é feito o pull request para a branch main (produção) é feito o deploy automático para o seguinte link [SisFinancial](https://sis-financial.vercel.app/app/login)
+O deploy inicial esta sendo feito através da vercel, foi automatizado com a integração github - vercel, assim utilizando gitflow quando é feito o pull request para a branch main (produção) é feito o deploy automático para o seguinte link [SisFinancial](https://sis-financial.vercel.app/app)
 
 ## Metodologia de Desenvolvimento
 
