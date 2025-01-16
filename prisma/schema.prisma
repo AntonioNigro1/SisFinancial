@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String          @id @default(cuid())
+  accountType AccountType   
+  name       String
+  email      String          @unique
+  password   String
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+
+  // Relacionamentos
+  sessions       Session[]
+  transactions   Transaction[]
+  accountDetails AccountDetails?
+
+  sentTransactions     Transaction[] @relation("Sender")
+  receivedTransactions Transaction[] @relation("Receiver")
+
+  AccountBalance AccountBalance[]
+}
+
+model AccountDetails {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  cpf          String?  @unique 
+  cnpj         String?  @unique 
+  companyName  String? 
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model AccountBalance {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  balance      Decimal  @default(0.00) 
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Transaction {
+  id           String            @id @default(cuid())
+  amount       Decimal           
+  type         TransactionType
+  status       TransactionStatus @default(PENDING)
+  senderId     String?
+  receiverId   String?
+  sender       User?             @relation("Sender", fields: [senderId], references: [id])
+  receiver     User?             @relation("Receiver", fields: [receiverId], references: [id])
+  reversalId   String?           @unique
+  reversal     Transaction?      @relation("Reversal", fields: [reversalId], references: [id])
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  relatedTransactions Transaction[] @relation("Reversal")
+
+  User User[]
+}
+
+enum TransactionType {
+  DEPOSIT
+  TRANSFER
+  REVERSAL
+  WITHDRAWAL
+}
+
+enum TransactionStatus {
+  PENDING
+  COMPLETED
+  REVERSED
+  FAILED
+}
+
+enum AccountType {
+  FISICA @map("física")
+  JURIDICA @map("jurídica")
+}

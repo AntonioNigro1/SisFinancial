@@ -5,9 +5,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { TransferenceData, TransferenceSchema } from "../../../application/schema/transferenceSchema";
+import requestTransference from "../../../services/request-transference.service";
 
 export const useTransference = () => {
-  const { balance } = useWallet();
+  const { updateBalance, user, setLoading } = useWallet();
   const { accountType } = useAccountType();
   const {
     control,
@@ -19,7 +20,7 @@ export const useTransference = () => {
     resolver: zodResolver(TransferenceSchema),
     mode: "all",
     defaultValues: {
-      amount: undefined,
+      amount: "",
       cpf: "",
       cnpj: "",
     },
@@ -29,15 +30,16 @@ export const useTransference = () => {
     reset({ cpf: "", cnpj: "", amount: "0,00" });
   };
 
-  const handleTransference = (data: TransferenceData) => {
-    //make transference request
-    console.log(data);
+  const handleTransference = async (data: TransferenceData) => {
+    await requestTransference({ data, setLoading, updateBalance, user });
+    resetForm();
   };
 
   useEffect(() => {
-    setValue("balance", balance ?? 0);
+    setValue("balance", user.balance);
     setValue("accountType", accountType);
-  }, [balance, accountType, setValue]);
+    setValue("userId", user.userId);
+  }, [user, accountType, setValue]);
 
   return { control, isValid, handleSubmit, handleTransference, resetForm };
 };
